@@ -43,7 +43,7 @@ public class Area {
      * @param time
      * @return the calculated distance
      */
-    public Float calculateDistance(Float time) {
+    public Float calculateDistance(long time) {
         Float distance = 0f;
         Float tmpTime = 0f;
         if (mLines.size() == 0) return distance;
