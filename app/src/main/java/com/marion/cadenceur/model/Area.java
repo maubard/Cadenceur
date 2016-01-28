@@ -1,6 +1,7 @@
 package com.marion.cadenceur.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -14,11 +15,34 @@ public class Area {
         this.mLines = new ArrayList<Line>();
     }
 
-    public void addLine(Float distance, Float moyenne) {
-        Line line = new Line(mLines.size(), distance, moyenne);
-        mLines.add(line);
+    /**
+     * Get line at given index
+     *
+     * @param index
+     * @return the matching Line object
+     */
+    public Line getLineAtIndex(int index) {
+        return mLines.get(index);
     }
 
+    /**
+     * Add a Line to this Area. It is added to the end of the lines list
+     *
+     * @param distance
+     * @param moyenne
+     */
+    public void addLine(Float distance, Float moyenne) {
+        Line line = new Line(distance, moyenne);
+        mLines.add(line);
+        sort();
+    }
+
+    /**
+     * According to all lines and given time, calculate the distance
+     *
+     * @param time
+     * @return the calculated distance
+     */
     public Float calculateDistance(Float time) {
         Float distance = 0f;
         Float tmpTime = 0f;
@@ -27,15 +51,23 @@ public class Area {
 
         for (int i=0 ; i < mLines.size() ; i++) {
             Line line = mLines.get(i);
-            if (distance >= line.getDistance()) {
-                tmpTime = tmpTime + line.getDistance() / (line.getMoyenne() / 3600.0f);
-                if (i < mLines.size()-1)
-                    distance = line.getDistance() + (mLines.get(i+1).getMoyenne() / 3600f) * (time - tmpTime);
+            Line previousLine = new Line(0f, 0f);
+            Line nextLine = null;
+            if (i > 0) previousLine = mLines.get(i - 1);
+            if (i < mLines.size() - 1) nextLine = mLines.get(i + 1);
+            if (distance >= line.getDistance() && nextLine != null) {
+                tmpTime = tmpTime + (line.getDistance() - previousLine.getDistance()) / (line.getMoyenne() / 3600.0f);
+                distance = line.getDistance() + (nextLine.getMoyenne() / 3600f) * (time - tmpTime);
             }
         }
         return distance;
 
     }
 
-
+    /**
+     * Sort lines by distance
+     */
+    public void sort() {
+        Collections.sort(mLines);
+    }
 }
