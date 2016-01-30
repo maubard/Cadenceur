@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".view.MainActivity">
+    tools:context=".controller.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/container"
-        android:name="com.marion.cadenceur.view.StartFragment"
+        android:name="com.marion.whitemadder.controller.StartFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
