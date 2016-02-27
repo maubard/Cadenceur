@@ -41,10 +41,10 @@ public class DbContract {
 
         protected static final String SQL_CREATE_ENTRIES =
                 "CREATE TABLE " + LineEntry.TABLE_NAME + " (" +
-                        LineEntry.COLUMN_NAME_ENTRY_ID + " INTEGER PRIMARY KEY " +
+                        LineEntry.COLUMN_NAME_ENTRY_ID + " INTEGER PRIMARY KEY " + COMMA_SEP +
                         LineEntry.COLUMN_NAME_ENTRY_DISTANCE + NUMBER_TYPE + COMMA_SEP +
                         LineEntry.COLUMN_NAME_ENTRY_AVERAGE + NUMBER_TYPE + COMMA_SEP +
-                        LineEntry.COLUMN_NAME_ENTRY_AREA + " INTEGER " + COMMA_SEP +
+                        LineEntry.COLUMN_NAME_ENTRY_AREA + " INTEGER " +
                 ")";
 
         protected static final String SQL_DELETE_ENTRIES =

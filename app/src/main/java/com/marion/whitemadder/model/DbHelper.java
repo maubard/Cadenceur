@@ -3,6 +3,7 @@ package com.marion.whitemadder.model;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by marion on 30/01/16.

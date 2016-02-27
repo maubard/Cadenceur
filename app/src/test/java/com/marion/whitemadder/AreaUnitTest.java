@@ -50,4 +50,18 @@ public class AreaUnitTest {
         assertEquals(3.00f, area.getLineAtIndex(1).getDistance(), 0.001f);
         assertEquals(5.00f, area.getLineAtIndex(2).getDistance(), 0.001f);
     }
+
+    @Test
+    public void testGetStartLineDistance() {
+        // Create area
+        Area area = new Area();
+        area.addLine(1.750f, 50.00f);
+        area.addLine(2.420f, 30.00f);
+        area.addLine(3.620f, 45.50f);
+
+        // Assert get start line distance feature is ok
+        assertEquals(0.00f, area.getStartLineDistance(area.getLineAtIndex(0)), 0.001f);
+        assertEquals(1.750f, area.getStartLineDistance(area.getLineAtIndex(1)), 0.001f);
+        assertEquals(2.420f, area.getStartLineDistance(area.getLineAtIndex(2)), 0.001f);
+    }
 }

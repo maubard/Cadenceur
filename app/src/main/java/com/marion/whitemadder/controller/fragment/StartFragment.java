@@ -1,4 +1,4 @@
-package com.marion.whitemadder.controller;
+package com.marion.whitemadder.controller.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;

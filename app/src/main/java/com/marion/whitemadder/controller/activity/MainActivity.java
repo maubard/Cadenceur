@@ -1,4 +1,4 @@
-package com.marion.whitemadder.controller;
+package com.marion.whitemadder.controller.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,8 +6,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.marion.whitemadder.R;
+import com.marion.whitemadder.controller.activity.area.MyAreasFragment;
+import com.marion.whitemadder.controller.fragment.StartFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
         mStartFragment = new StartFragment();
         mAreaFragment = new MyAreasFragment();
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
     }
 
     /**

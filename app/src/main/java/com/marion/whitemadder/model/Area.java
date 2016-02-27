@@ -26,6 +26,15 @@ public class Area {
     }
 
     /**
+     * Get all sorted Lines
+     * @return the lines
+     */
+    public List<Line> getLines() {
+        this.sort();
+        return mLines;
+    }
+
+    /**
      * Add a Line to this Area. It is added to the end of the lines list
      *
      * @param distance
@@ -69,5 +78,16 @@ public class Area {
      */
     public void sort() {
         Collections.sort(mLines);
+    }
+
+    /**
+     * Get start line distance
+     * @param line
+     * @return
+     */
+    public Float getStartLineDistance(Line line) {
+        int index = mLines.indexOf(line);
+        if (index == 0) return 0f;
+        else return mLines.get(index-1).getDistance();
     }
 }
